@@ -22,6 +22,20 @@ const movies = [
 const moviesContainer = document.getElementById("movies-container");
 const selectedCategory = document.getElementById("category-select");
 
-function displayMovies("filmListe") {
+function displayMovies(filmListe) {
     moviesContainer.innerHTML = ""; //Tømmer container for at undgå dublikering
+
+    filmListe.forEach( (movie) => {
+        const movieElement = document.createElement("article"); //Javascript element der opretter et HTML element "article"
+        movieElement.innerHTML = `
+        <h3>${movie.title}</h3>
+        <p>Genre: ${movie.genre}</p>
+        <p>Årstal: ${movie.year}</p>
+        <p>Varighed: ${movie.duration}</p> 
+        <figure>
+            <a href="${movie.url}" target="_blank"
+            <img src="${movie.img}" alt="${movie.title}"> 
+            </a>
+        </figure>`;
+    })
 }
