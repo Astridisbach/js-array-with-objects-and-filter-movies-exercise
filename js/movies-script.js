@@ -39,3 +39,21 @@ function displayMovies(filmListe) {
         </figure>`;
     })
 }
+
+displayMovies (movies);
+
+selectedCategory.addEventListener("change", () => {
+    //Henter 
+    const selectedValue = selectedCategory.ariaValueMax;
+
+    let filteredMovies;
+
+    if(selectedValue === "all"){
+        filteredMovies = movies;
+    } else {
+        filteredMovies = movies.filter(movie => movie.genre === selectedValue);
+    }
+
+    displayMovies(filteredMovies);
+    
+})
